@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Broken Source Selector in Flash Demo</title>
+
+
+  <script src="build/jquery.js"></script>
+  <script src="build/mediaelement-and-player.min.js"></script>
+  <script src="src/js/mep-feature-sourcechooser.js"></script>
+  <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
+
+</head>
+<body>
+
+<h2>This is a working HTML5 Player</h2>
+<video width="360" height="203" id="html5player" controls="controls">
+  <source src="media/echo-hereweare.mp4" type="video/mp4" title="mp4">
+  <source src="media/sample.mp4" type="video/mp4" title="sample mp4">
+  <p>Your browser leaves much to be desired.</p>
+</video>
+
+<script>
+  $('#html5player').mediaelementplayer({
+    features: ['playpause','progress','volume','sourcechooser']
+  });
+</script>
+
+<hr>
+
+<h2>Broken Flash Source Chooser</h2>
+<video width="360" height="203" id="flashplayer" controls="controls">
+  <source src="media/echo-hereweare.mp4" type="video/mp4" title="mp4">
+  <source src="media/sample.mp4" type="video/mp4" title="sample mp4">
+  <p>Your browser leaves much to be desired.</p>
+</video>
+
+<script>
+  $('#flashplayer').mediaelementplayer({
+    mode: 'shim', features: ['playpause','progress','volume','sourcechooser']
+  });
+</script>
+
+
+</body>
+</html>
