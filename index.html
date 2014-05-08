@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Broken Source Selector in Flash Demo</title>
+
+
+  <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
+
+
+  <script src="build/jquery.js"></script>
+
+  <!-- include source files here... -->
+  <script src="src/js/me-header.js"></script>
+  <script src="src/js/me-namespace.js"></script>
+  <script src="src/js/me-utility.js"></script>
+  <script src="src/js/me-plugindetector.js"></script>
+  <script src="src/js/me-featuredetection.js"></script>
+  <script src="src/js/me-mediaelements.js"></script>
+  <script src="src/js/me-shim.js"></script>
+  <script src="src/js/me-i18n.js"></script>
+  <script src="src/js/me-i18n-locale-de.js"></script>
+
+  <script src="src/js/mep-header.js"></script>
+  <script src="src/js/mep-library.js"></script>
+  <script src="src/js/mep-player.js"></script>
+  <script src="src/js/mep-feature-playpause.js"></script>
+  <script src="src/js/mep-feature-stop.js"></script>
+  <script src="src/js/mep-feature-progress.js"></script>
+  <script src="src/js/mep-feature-time.js"></script>
+  <script src="src/js/mep-feature-volume.js"></script>
+  <script src="src/js/mep-feature-fullscreen.js"></script>
+  <script src="src/js/mep-feature-tracks.js"></script>
+  <script src="src/js/mep-feature-contextmenu.js"></script>
+  <script src="src/js/mep-feature-postroll.js"></script>
+  <script src="src/js/mep-feature-sourcechooser.js"></script>
+
+</head>
+<body>
+
+<h2>This is a working HTML5 Player</h2>
+<video width="360" height="203" id="html5player" controls="controls">
+  <source src="media/echo-hereweare.mp4" type="video/mp4" title="mp4">
+  <source src="media/other.mp4" type="video/mp4" title="sample mp4">
+  <p>Your browser leaves much to be desired.</p>
+</video>
+
+<script>
+  $('#html5player').mediaelementplayer({
+    features: ['playpause', 'progress', 'volume', 'sourcechooser']
+  });
+</script>
+
+<hr>
+
+<h2>Broken Flash Source Chooser</h2>
+<video width="360" height="203" id="flashplayer" controls="controls">
+  <source src="media/echo-hereweare.mp4" type="video/mp4" title="mp4">
+  <source src="media/other.mp4" type="video/mp4" title="sample mp4">
+  <p>Your browser leaves much to be desired.</p>
+</video>
+
+<script>
+  $('#flashplayer').mediaelementplayer({
+    mode: 'shim', features: ['playpause', 'progress', 'volume', 'sourcechooser']
+  });
+</script>
+
+
+</body>
+</html>
+

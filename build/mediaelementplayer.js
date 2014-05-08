@@ -531,7 +531,7 @@ if (typeof jQuery != 'undefined') {
 							t['build' + feature](t, t.controls, t.layers, t.media);
 						} catch (e) {
 							// TODO: report control error
-							//throw e;
+//							throw e;
 							
 							
 						}

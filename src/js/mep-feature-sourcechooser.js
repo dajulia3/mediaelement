@@ -36,20 +36,27 @@
 							paused = media.paused;
 							media.setSrc(src);
 							media.load();
-							media.addEventListener('loadedmetadata', function(e){
-				                this.currentTime = currentTime;
-				            }, true);
-				            media.addEventListener('canplay', function(e){
-				            	if (!paused) {
-					            	this.play();
-					            }
-				            }, true);
+                            media.pause();
+
+                            if(media.pluginType === "native"){
+                                media.addEventListener('loadedmetadata', function(e){
+                                    this.currentTime = currentTime;
+                                }, true);
+                                media.addEventListener('canplay', function(e){
+                                    if (!paused) {
+                                        this.play();
+                                    }
+                                }, true);
+                            } else if(!paused){
+                                media.play();
+                            }
+
 						}
 					});
 
 			// add to list
-			for (var i in media.children) {
-				var src = media.children[i];
+			for (var i in this.node.children) {
+				var src = this.node.children[i];
 				if (src.nodeName === 'SOURCE' && (media.canPlayType(src.type) == 'probably' || media.canPlayType(src.type) == 'maybe')) {
 					player.addSourceButton(src.src, src.title, src.type, media.src == src.src);
 				}
